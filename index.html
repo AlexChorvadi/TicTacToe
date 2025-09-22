@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer-to-Peer TicTacToe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- How to Play Button -->
+    <button id="howToPlayBtn" style="position:fixed;top:24px;right:32px;z-index:1;background:#1976d2;color:#fff;border:none;border-radius:6px;padding:10px 20px;font-size:1em;font-weight:bold;box-shadow:0 2px 8px rgba(25,118,210,0.10);cursor:pointer;transition:background 0.2s;">How to Play</button>
+
+    <!-- How to Play Side Panel -->
+    <div id="howToPanel" style="position:fixed;top:0;right:-400px;width:340px;height:100%;background:#fff;box-shadow:0 0 16px rgba(25,118,210,0.15);z-index:10001;transition:right 0.3s;padding:32px 24px 24px 24px;display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h2 style="margin:0;font-size:1.3em;color:#1976d2;">How to Play</h2>
+        <button id="closeHowTo" style="background:#d32f2f;color:#fff;border:none;border-radius:4px;padding:4px 12px;font-size:1em;cursor:pointer;z-index:10003;">Close</button>
+      </div>
+      <ol style="font-size:1em;color:#263238;line-height:1.7;margin:0;padding-left:18px;">
+        <li>Connect to the same WiFi or internet at home.</li>
+        <li>One of you clicks the first button at the top (it says <b>Host</b>), and the other clicks the second button (it says <b>Join</b>).</li>
+        <li>The first player will see a box called <b>Your Signal</b>. Copy everything in that box and send it to your friend (for example, using chat or email).</li>
+        <li>Your friend should paste what you sent into the box called <b>Peer-Signal</b> and copy their own <b>Your Signal</b> box to send back to you.</li>
+        <li>Paste what your friend sent you into your <b>Peer-Signal</b> box.</li>
+        <li>Both of you click the green <b>Submit Signal</b> button.</li>
+        <li>Now you can play TicTacToe together! The first player is X, the second player is O.</li>
+        <li>If you want to stop playing, click the red <b>Disconnect</b> button.</li>
+      </ol>
+      <div style="margin-top:12px;color:#1976d2;font-size:0.95em;">You can keep this panel open while playing, or close it anytime.</div>
+    </div>
+
+    <!-- Toast Message Container -->
+    <div id="toast" style="position:fixed;left:50%;top:32px;transform:translateX(-50%);background:#1976d2;color:#fff;padding:12px 32px;border-radius:8px;font-size:1.1em;font-weight:bold;box-shadow:0 2px 8px rgba(25,118,210,0.15);z-index:9999;display:none;"></div>
+
+    <h1 style="margin-top:32px;">TicTacToe</h1>
+    <div id="peer-menu" style="margin: 16px auto 24px auto; max-width: 400px; display: flex; justify-content: center; align-items: center;"></div>
+    <!-- Peering controls row (host/join, signals, copy buttons) will be rendered by JS -->
+    <div id="game">
+        <!-- TicTacToe board will be rendered here -->
+    </div>
+
+    <!-- Common Tooltip for Copy Action -->
+    <div id="copyTooltip" style="position:fixed;bottom:32px;right:32px;z-index:99999;background:#1976d2;color:#fff;padding:12px 32px;border-radius:8px;font-size:1.1em;font-weight:bold;box-shadow:0 2px 8px rgba(25,118,210,0.15);display:none;opacity:0;transition:opacity 0.4s,transform 0.4s;transform:translateY(20px);pointer-events:none;">signal copied successfully</div>
+    <script src="https://unpkg.com/simple-peer@9.11.1/simplepeer.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peer-to-Peer TicTacToe</title>
+  <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
+  <!-- Notification (used for both toast & tooltip) -->
+  <div id="notification" class="notification"></div>
+
+  <!-- How to Play Button -->
+  <button id="howToPlayBtn" class="btn fixed-btn">How to Play</button>
+
+  <!-- How to Play Panel -->
+  <div id="howToPanel" class="side-panel">
+    <div class="panel-header">
+      <h2>How to Play</h2>
+      <button id="closeHowTo" class="btn close-btn">Close</button>
+    </div>
+    <ol>
+      <li>Connect to the same WiFi or internet at home.</li>
+      <li>One player clicks <b>Host</b>, the other clicks <b>Join</b>.</li>
+      <li>Copy the signal from <b>Your Signal</b> and send it to your friend.</li>
+      <li>Your friend pastes it into <b>Peer-Signal</b>, and sends back their signal.</li>
+      <li>You paste their signal into <b>Peer-Signal</b>.</li>
+      <li>Both click <b>Submit Signal</b> to connect.</li>
+      <li>Start playing. Host is <b>X</b>, Join is <b>O</b>.</li>
+      <li>Click <b>Disconnect</b> to end the game.</li>
+    </ol>
+    <div class="info-text">You can keep this panel open while playing or close it anytime.</div>
+  </div>
+
+  <h1>TicTacToe</h1>
+
+  <!-- Host/Join Buttons -->
+  <div id="peer-menu">
+    <button id="hostBtn" class="btn">Host</button>
+    <button id="joinBtn" class="btn">Join</button>
+	<button id="playCpuBtn" class="btn">Play vs Computer</button>
+	<select id="cpuDifficulty">
+	  <option value="easy">Easy</option>
+	  <option value="medium" selected>Medium</option>
+	  <option value="hard">Hard</option>
+	</select>
+
+  </div>
+
+  <!-- Signal Controls -->
+  <div class="signal-row">
+    <div>
+      <label for="signalOut">Your Signal</label>
+      <textarea id="signalOut" rows="2" placeholder="Your signal will appear here"></textarea>
+      <button id="copySignalBtn" class="btn">Copy Signal</button>
+    </div>
+    <div>
+      <label for="signalIn">Peer-Signal</label>
+      <textarea id="signalIn" rows="2" placeholder="Paste peer signal here"></textarea>
+      <button id="pasteSignalBtn" class="btn">Paste Signal</button>
+    </div>
+  </div>
+
+  <!-- Connect & Disconnect -->
+  <div class="control-row">
+    <button id="connectBtn" class="btn success">Submit Signal</button>
+    <button id="disconnectBtn" class="btn danger">Disconnect</button>
+    <div><span id="status"></span></div>
+  </div>
+
+  <!-- Scoreboard and Game Container -->
+  <div id="scoreboard"></div>
+  <div id="player-status"></div>
+  <div id="game"></div>
+
+  <script src="https://unpkg.com/simple-peer@9.11.1/simplepeer.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
